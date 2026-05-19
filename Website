@@ -1,0 +1,290 @@
+export default function KhanivoreStore() {
+  const products = [
+    {
+      name: "Traditional Biltong",
+      price: "R129",
+      image:
+        "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=1200&auto=format&fit=crop",
+      description: "Premium handcrafted halaal beef biltong.",
+    },
+    {
+      name: "Chilli Snap Sticks",
+      price: "R89",
+      image:
+        "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop",
+      description: "Spicy protein snack with bold flavour.",
+    },
+    {
+      name: "Garlic Droëwors",
+      price: "R99",
+      image:
+        "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
+      description: "Authentic droëwors with a garlic twist.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-stone-950 text-white">
+      {/* Header */}
+      <header className="border-b border-stone-800 bg-stone-950/95 backdrop-blur sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-black tracking-widest text-amber-400">
+              KHANIVORE
+            </h1>
+            <p className="text-sm text-stone-400">
+              Artisan Halaal Biltong
+            </p>
+          </div>
+
+          <nav className="hidden md:flex gap-8 text-sm font-medium">
+            <a href="#products" className="hover:text-amber-400 transition">
+              Products
+            </a>
+            <a href="#about" className="hover:text-amber-400 transition">
+              About
+            </a>
+            <a href="#contact" className="hover:text-amber-400 transition">
+              Contact
+            </a>
+          </nav>
+
+          <button className="bg-amber-400 text-black px-5 py-2 rounded-2xl font-semibold hover:scale-105 transition">
+            Cart (0)
+          </button>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10" />
+
+        <img
+          src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?q=80&w=1600&auto=format&fit=crop"
+          alt="Biltong"
+          className="w-full h-[650px] object-cover opacity-60"
+        />
+
+        <div className="absolute inset-0 z-20 flex items-center">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-2xl space-y-6">
+              <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 rounded-full px-4 py-2 text-sm text-amber-300">
+                Premium South African Snacks
+              </div>
+
+              <h2 className="text-5xl md:text-7xl font-black leading-tight">
+                Bold Flavour.
+                <span className="block text-amber-400">Pure Protein.</span>
+              </h2>
+
+              <p className="text-lg text-stone-300 leading-relaxed">
+                Handcrafted halaal biltong made with quality cuts, authentic spices,
+                and traditional South African techniques.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <a
+                  href="#products"
+                  className="bg-amber-400 text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 transition"
+                >
+                  Shop Now
+                </a>
+
+                <button className="border border-stone-600 px-8 py-4 rounded-2xl font-semibold hover:bg-stone-900 transition">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16 border-y border-stone-800 bg-stone-900">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "100% Halaal",
+              desc: "Prepared according to halaal standards with premium ingredients.",
+            },
+            {
+              title: "Locally Crafted",
+              desc: "Made in Cape Town using traditional South African methods.",
+            },
+            {
+              title: "Nationwide Delivery",
+              desc: "Fast and secure shipping throughout South Africa.",
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="bg-stone-950 border border-stone-800 rounded-3xl p-8"
+            >
+              <h3 className="text-2xl font-bold mb-3 text-amber-400">
+                {item.title}
+              </h3>
+              <p className="text-stone-400 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Products */}
+      <section id="products" className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div>
+              <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm">
+                Our Products
+              </p>
+              <h2 className="text-4xl md:text-5xl font-black mt-3">
+                Best Sellers
+              </h2>
+            </div>
+
+            <p className="text-stone-400 max-w-xl">
+              Explore our premium range of handcrafted biltong, droëwors, and snack sticks.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <div
+                key={product.name}
+                className="bg-stone-900 border border-stone-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition duration-300"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-72 w-full object-cover group-hover:scale-110 transition duration-500"
+                  />
+                </div>
+
+                <div className="p-6 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold">{product.name}</h3>
+                    <span className="text-amber-400 font-black text-xl">
+                      {product.price}
+                    </span>
+                  </div>
+
+                  <p className="text-stone-400">{product.description}</p>
+
+                  <button className="w-full bg-amber-400 text-black py-3 rounded-2xl font-bold hover:opacity-90 transition">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-24 bg-stone-900 border-y border-stone-800">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop"
+              alt="Crafted biltong"
+              className="rounded-3xl shadow-2xl"
+            />
+          </div>
+
+          <div className="space-y-6">
+            <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm">
+              Our Story
+            </p>
+
+            <h2 className="text-4xl md:text-5xl font-black leading-tight">
+              Crafted With Tradition & Passion
+            </h2>
+
+            <p className="text-stone-400 leading-relaxed text-lg">
+              Khanivore combines authentic South African biltong traditions with premium quality ingredients.
+              Every batch is carefully seasoned, cured, and packed for unbeatable flavour.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 pt-4">
+              <div className="bg-stone-950 border border-stone-800 rounded-2xl p-6">
+                <div className="text-4xl font-black text-amber-400">100%</div>
+                <p className="text-stone-400 mt-2">Premium Beef</p>
+              </div>
+
+              <div className="bg-stone-950 border border-stone-800 rounded-2xl p-6">
+                <div className="text-4xl font-black text-amber-400">Halaal</div>
+                <p className="text-stone-400 mt-2">Certified Process</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <div className="bg-gradient-to-r from-amber-400 to-yellow-500 rounded-[40px] p-12 text-black shadow-2xl">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Ready to Taste the Difference?
+            </h2>
+
+            <p className="text-lg max-w-2xl mx-auto mb-8 opacity-80">
+              Order your premium handcrafted biltong today and enjoy authentic South African flavour.
+            </p>
+
+            <button className="bg-black text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition">
+              Start Shopping
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer
+        id="contact"
+        className="border-t border-stone-800 bg-black py-12"
+      >
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+          <div>
+            <h3 className="text-3xl font-black text-amber-400 tracking-widest">
+              KHANIVORE
+            </h3>
+            <p className="text-stone-500 mt-4 leading-relaxed">
+              Premium artisan halaal biltong handcrafted in Cape Town.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-lg mb-4">Quick Links</h4>
+            <div className="flex flex-col gap-2 text-stone-400">
+              <a href="#products" className="hover:text-amber-400 transition">
+                Products
+              </a>
+              <a href="#about" className="hover:text-amber-400 transition">
+                About Us
+              </a>
+              <a href="#contact" className="hover:text-amber-400 transition">
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-lg mb-4">Contact</h4>
+            <div className="space-y-2 text-stone-400">
+              <p>Cape Town, South Africa</p>
+              <p>info@khanivore.co.za</p>
+              <p>+27 82 558 2285</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 pt-10 mt-10 border-t border-stone-900 text-stone-600 text-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <p>© 2026 Khanivore. All rights reserved.</p>
+          <p>Designed for premium South African snacking.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
